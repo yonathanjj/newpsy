@@ -1,0 +1,751 @@
+/* Font and base styles */
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap');
+body {
+    font-family: 'Inknut Antiqua', serif;
+      background-color: #252626;
+}
+
+/* Background image */
+.hero {
+    background-image: url('event4.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/* Background overlay */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Navbar styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure the navbar is on top */
+}
+
+.logo {
+    width: 80px;
+    margin-left: 4rem;
+}
+
+.nav-item {
+    color: white;
+    font-weight: bold;
+        font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: yellow;
+}
+
+.flex.mr-16 {
+    margin-right: 4rem;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure the navbar is on top */
+    width: 100%; /* Full width of the container */
+    position: fixed; /* Keep it at the top */
+    left: 0; /* Align to the left edge */
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure the navbar is on top */
+    width: 100%; /* Full width of the container */
+    position: fixed; /* Keep it at the top */
+    left: 0; /* Align to the left edge */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out the items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger Styles */
+.hamburger {
+    cursor: pointer; /* Change cursor on hover */
+    flex-direction: column; /* Stack lines vertically */
+    margin-left: auto; /* Push hamburger to the right */
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none; /* Initially hidden */
+    background: rgba(0, 0, 0, 0.9); /* Black background for the mobile menu */
+    position: fixed; /* Fix position so it covers the full width */
+    top: 80px; /* Adjust based on navbar height */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    margin: 0; /* Remove margin */
+    padding: 1rem; /* Add padding for the mobile menu */
+    z-index: 20; /* Make sure it's on top of other elements */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20px); /* Start slightly above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Show menu when hamburger is clicked */
+.mobile-menu:not(.hidden) {
+    display: block; /* Show the menu */
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Move it to the default position */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide desktop nav links */
+    }
+
+    .mobile-menu {
+        padding: 2rem 0; /* Add padding to the mobile menu for top and bottom */
+    }
+
+    .mobile-menu a {
+        text-align: center; /* Center text in mobile menu */
+        display: block; /* Block display for each link */
+        margin: 1rem 0; /* Spacing between links */
+        color: white; /* Text color for visibility */
+        font-weight: bold; /* Bold text */
+        font-size: 1.5rem; /* Increase font size for better readability */
+    }
+}
+
+
+
+/* Main content */
+.main-content h1 {
+    font-size: 5rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.main-content p {
+    font-size: 1.5rem;
+}
+
+/* Buttons */
+.buttons .info-btn, .tickets-btn {
+    width: 220px;
+    height: 50px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.buttons .info-btn:hover, .tickets-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-content h1 {
+        font-size: 3rem; /* Smaller font size for mobile */
+    }
+
+    .main-content p {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+
+    .buttons .info-btn,
+    .buttons .tickets-btn {
+        width: 180px; /* Adjust button width */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .main-content h1 {
+        font-size: 2.5rem; /* Even smaller for very small devices */
+    }
+
+    .main-content p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+
+    .buttons .info-btn,
+    .buttons .tickets-btn {
+        width: 150px; /* Further adjust button width */
+    }
+}
+
+/* Info Section */
+.info-section {
+    background-color: #252626; /* Background color */
+}
+
+.info-text {
+    margin-left: 4rem;
+    font-size: 20px;
+}
+
+.info-image img {
+    width: 480px;
+    height: 480px;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+ .info-text {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .info-image img {
+        width: 100%; /* Make image responsive */
+        height: auto;
+    }
+}
+
+
+
+.events-section {
+  position: relative;
+  padding: 40px;
+  background-color: #252626;
+  text-align: center;
+  overflow: hidden;
+}
+
+.events-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+
+ .events-grid {
+   display: flex;
+   gap: 30px;
+   overflow: hidden;
+   scroll-snap-type: x mandatory; /* Snap effect */
+ }
+
+.event-card {
+  min-width: 300px; /* Set a fixed card width */
+  height: 400px;
+  margin: 0; /* Ensures no spacing around each card */
+  padding: 0; /* Removes any internal padding */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+  width: 100%;
+    height: 400px;
+  object-fit: cover;
+}
+
+.event-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%; /* Overlay height to cover half of the card */
+  background: linear-gradient(to top, rgba(255, 223, 0, 0.8), rgba(255, 223, 0, 0));
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.event-details {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #ffffff;
+  z-index: 1;
+  text-align: left;
+}
+
+.event-details h3 {
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.event-details p {
+  color: #f0f0f0;
+  margin: 5px 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: left;
+}
+
+.outline-button {
+  width: 130px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 30px;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.outline-button:hover {
+  background-color: #ffffff;
+  color: #252626;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icon-button {
+    width: 50px; /* Set your desired icon size */
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 50%; /* Optional: round icon */
+}
+
+.icon-button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
+}
+
+
+
+/* Media query for mobile mode */
+@media (max-width: 768px) {
+  .events-grid {
+    display: flex; /* Change to flex for horizontal scrolling on mobile */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap effect */
+    padding: 0; /* Ensures no extra space around the grid */
+  }
+
+  .event-card {
+    scroll-snap-align: start; /* Snap alignment */
+    min-width: 90%; /* Ensures each card takes full width of the viewport */
+  }
+}
+
+
+
+/* Additional styling for the 'More Events' button */
+.more-events-button {
+  width: 97%;
+  height: 100px;
+  margin: 30px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: transparent;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-decoration: none; /* For link styling */
+}
+
+/* Text and arrow styling */
+.more-events-button span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.more-events-button span::after {
+  content: '→'; /* Arrow */
+  font-size: 40px;
+}
+
+/* Yellow fill effect on hover */
+.more-events-button::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 223, 0, 0.8); /* Yellow overlay */
+  transition: top 0.4s ease;
+  z-index: 0;
+}
+
+/* Hover effect to animate fill from bottom up */
+.more-events-button:hover::before {
+  top: 0;
+}
+
+.more-events-button:hover {
+  color: #252626; /* Text color changes to match background */
+}
+
+
+
+
+
+/* Existing CSS */
+
+body {
+    background-color: #252626; /* Background color for the whole page */
+}
+
+.latest-releases {
+    padding: 20px;
+    background-color: #252626; /* Set the same background color as the body */
+    color: white;
+    text-align: left;
+    width: 100%; /* Set the section to be full width */
+    margin: 0 auto; /* Center the container */
+}
+
+.latest-releases h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+        margin-left: 4rem;
+
+}
+
+.releases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 95%; /* Set the grid to be 95% of its parent */
+    margin: 0 auto; /* Center the grid */
+}
+
+.release-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 95%; /* Set the card width to 95% */
+    height: 400px;
+}
+
+.release-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.release-info {
+    padding: 10px;
+    text-align: left;
+}
+
+.release-info h3 {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.release-info p {
+    font-size: 0.8em;
+}
+
+.release-info .artist {
+    color: #0f0;
+    font-weight: bold;
+}
+
+.release-icons {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    border-top: 1px solid #444;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #0f0;
+}
+
+.divider {
+    width: 1px;
+    height: 15px;
+    background-color: #444;
+    margin: 0 8px;
+}
+
+.play-button {
+    background-color: #00ff91;
+    color: #252626;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-left: auto;
+    font-size: 0.9em;
+}
+
+.play-button:hover {
+    background-color: #00cc7a;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icon-button {
+    width: 50px; /* Set your desired icon size */
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 50%; /* Optional: round icon */
+}
+
+.icon-button:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
+}
+
+
+@media (max-width: 768px) { /* Target mobile screens */
+    .releases-grid {
+        display: flex; /* Use flexbox for horizontal layout */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        scroll-snap-type: x mandatory; /* Enable snap scrolling */
+        gap: 15px; /* Keep the gap between cards */
+        padding: 20px 10px; /* Add padding for aesthetics */
+    }
+
+    .release-card {
+        flex: 0 0 90%; /* Each card takes up 90% of the container width */
+        margin-right: 10px; /* Margin to create a glimpse of the next card */
+        scroll-snap-align: start; /* Snap alignment */
+    }
+
+    .releases-grid::-webkit-scrollbar {
+        display: none; /* Hide scrollbar */
+    }
+}
+
+
+/* Audio Player */
+.audio-player {
+    display: flex;
+    align-items: center;
+    background-color: #2c6f3e;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    margin-top: 20px;
+}
+
+.audio-player.hidden {
+    display: none;
+}
+
+.player-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.player-info {
+    margin-left: 15px;
+    flex: 1;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    width: 100px;
+}
+
+.more-events-button {
+    width: 97%;
+    height: 100px;
+    margin: 30px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: transparent;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-decoration: none; /* For link styling */
+}
+
+/* Text and arrow styling */
+.more-events-button span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+}
+
+.more-events-button span::after {
+    content: '→'; /* Arrow */
+    font-size: 40px;
+}
+
+/* Yellow fill effect on hover */
+.more-events-button::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 223, 0, 0.8); /* Yellow overlay */
+    transition: top 0.4s ease;
+    z-index: 0;
+}
+
+/* Hover effect to animate fill from bottom up */
+.more-events-button:hover::before {
+    top: 0;
+}
+
+.more-events-button:hover {
+    color: #252626; /* Text color changes to match background */
+}
+.rave-message {
+    color: white; /* Set the text color */
+    font-size: 1.2em; /* Adjust the font size */
+    margin-top: 15px; /* Add some space above the text */
+    text-align: center; /* Center align the text */
+}
+
+
+
+
+/* Footer Section */
+.footer-section {
+    background-color: #252626;
+    color: #ffffff;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.footer-content {
+    max-width: 97%;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.footer-contact span {
+    font-size: 1rem;
+    display: block;
+}
+
+.footer-social-icons a img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default */
+    gap: 1rem;
+    text-align: left;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #28a745;
+}
+
+.footer-legal {
+    max-width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid #ffffff;
+    padding-top: 1rem;
+    color: #b0b0b0; /* Dimmed color */
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-legal a {
+    color: #b0b0b0;
+    font-size: 0.75rem;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+    color: #28a745;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-nav {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+        text-align: center; /* Align text left on desktop */
+    }
+
+    .footer-legal {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+}

@@ -1,0 +1,20 @@
+/* Custom gradient button */
+.play-btn {
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    color: black;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.play-btn:hover {
+    background: linear-gradient(135deg, #66a6ff, #89f7fe);
+}
+
+/* Additional styles for card animation */
+.card {
+    background-color: #1E1E1E; /* Change card color */
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
