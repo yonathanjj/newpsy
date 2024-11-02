@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PSY Addis Festival</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="user.css">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="user.js"></script>
+</head>
+<body class="font-inknut-antiqua">
+
+<!-- Navbar -->
+<nav class="navbar fixed top-0 w-full h-20 flex items-center px-4 backdrop-blur-md backdrop-brightness-75">
+  <a href="index.html"><img src="psy.png" class="logo"></a>
+  <div class="nav-links flex-1 justify-center hidden md:flex space-x-6">
+    <a href="Gallery.html" class="text-white font-bold hover:text-yellow-400">Gallery</a>
+    <a href="Aboutus.html" class="text-white font-bold hover:text-yellow-400">About Us</a>
+  </div>
+  <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
+    <a href="#" class="text-white font-bold hover:text-yellow-400" id="loginButton">Login</a>
+    <a href="#" class="text-white font-bold hover:text-yellow-400">Store</a>
+  </div>
+  <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
+    <div class="bg-white w-8 h-1 mb-1"></div>
+    <div class="bg-white w-8 h-1 mb-1"></div>
+    <div class="bg-white w-8 h-1"></div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
+  <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
+  <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
+  <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
+  <a href="#" class="block text-white font-bold hover:text-yellow-400" id="loginButtonMobile">Login</a>
+</div>
+
+
+<!-- Main Container -->
+<div class="container">
+  <!-- Left Side Content -->
+  <div class="left-side">
+    <h2>Your Account</h2>
+    <div class="divider"></div>
+
+    <ul class="account-links">
+      <li>
+        <a href="#" id="account-preview-link">
+          <img src="account-icon.png" alt="Account Icon">
+          <span>Account Preview</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="profile-icon.png" alt="Profile Icon">
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="orders-icon.png" alt="Orders Icon">
+          <span>Orders</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="logout">
+      <a href="#">
+        <img src="logout-icon.png" alt="Logout Icon">
+        <span>Log Out</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right Side Content -->
+  <div class="right-side">
+    <div class="horizontal-line"></div>
+    <div class="welcome-message">
+      <p class="greeting">Welcome back!</p>
+      <p>Here you will find all your relevant information about your account, your orders, and products that you have already downloaded. If you have any questions, please contact our customer service by email at <a href="mailto:support@psyaddis.com">support@psyaddis.com</a>.</p>
+    </div>
+
+    <div class="profile-section">
+      <h3>Profile</h3>
+      <a href="edit-profile.html">Edit Profile</a>
+    </div>
+
+    <div class="horizontal-line"></div>
+
+    <div class="profile-details">
+      <div>
+        <p><span>First name:</span> John</p>
+        <p><span>Last name:</span> Doe</p>
+        <p><span>Email address:</span> john.doe@example.com</p>
+      </div>
+      <div>
+        <p><span>Street:</span> Elm St</p>
+        <p><span>House number:</span> 123</p>
+        <p><span>Postal code:</span> 12345</p>
+        <p><span>City:</span> Metropolis</p>
+        <p><span>Phone number:</span> +123456789</p>
+        <p><span>Country:</span> Wonderland</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer Section -->
+<footer class="footer-section py-8">
+  <div class="footer-content flex flex-col md:flex-row justify-between items-start px-4 md:px-0">
+
+    <!-- Logo and Contact Info -->
+    <div class="footer-logo mb-4 md:mb-0">
+      <a href="index.html"><img src="psy.png" alt="Logo"></a>
+    </div>
+
+    <div class="footer-contact text-center md:text-left">
+      <span>Contact us at: support@psy.com</span>
+
+      <!-- Social Media Icons -->
+      <div class="footer-social-icons flex justify-center md:justify-start space-x-4 mt-2">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- Footer Navigation Links -->
+    <div class="footer-nav grid grid-cols-1 md:grid-cols-3 gap-2 text-left mt-6 md:mt-0">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Gallery</a>
+      <a href="#">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Footer Legal Section -->
+  <div class="footer-legal mt-8 py-4 text-center md:text-left text-gray-400">
+    <span>&copy; 2024 Psyaddis. All rights reserved.</span>
+    <div class="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookies</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

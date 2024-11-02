@@ -1,0 +1,342 @@
+ @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap');
+
+ body {
+        font-family: 'Inknut Antiqua', serif;
+        background-color: #252626; /* Set background color here */
+    }
+
+    /* Navbar styles */
+    .navbar {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        z-index: 10; /* Ensure the navbar is on top */
+    }
+
+    /* Logo style */
+    .logo {
+        width: 80px;
+        margin-left: 4rem;
+    }
+
+    /* Margin adjustment */
+    .flex.mr-16 {
+        margin-right: 4rem;
+    }
+
+    /* Hamburger styles */
+    .hamburger {
+        cursor: pointer; /* Change cursor on hover */
+        flex-direction: column; /* Stack lines vertically */
+        margin-left: auto; /* Push hamburger to the right */
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-menu {
+        display: none; /* Initially hidden */
+        background: rgba(0, 0, 0, 0.9); /* Black background for the mobile menu */
+        position: fixed; /* Fix position so it covers the full width */
+        top: 80px; /* Adjust based on navbar height */
+        left: 0; /* Align to the left */
+        right: 0; /* Align to the right */
+        margin: 0; /* Remove margin */
+        padding: 1rem; /* Add padding for the mobile menu */
+        z-index: 20; /* Make sure it's on top of other elements */
+        opacity: 0; /* Start hidden */
+        transform: translateY(-20px); /* Start slightly above */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    /* Show menu when hamburger is clicked */
+    .mobile-menu:not(.hidden) {
+        display: block; /* Show the menu */
+        opacity: 1; /* Make it visible */
+        transform: translateY(0); /* Move it to the default position */
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Hide desktop nav links */
+        }
+
+        .mobile-menu {
+            padding: 2rem 0; /* Add padding to the mobile menu for top and bottom */
+        }
+
+        .mobile-menu a {
+            text-align: center; /* Center text in mobile menu */
+            display: block; /* Block display for each link */
+            margin: 1rem 0; /* Spacing between links */
+            color: white; /* Text color for visibility */
+            font-weight: bold; /* Bold text */
+            font-size: 1.5rem; /* Increase font size for better readability */
+        }
+    }
+
+
+/* Reset and General Body Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 5rem; /* Large padding on body to push content down initially */
+}
+
+/* Main Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 8rem; /* Additional top margin for container */
+}
+
+/* Increase spacing on larger screens */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* Switch to row layout on larger screens */
+  }
+}
+
+/* Left Side Content */
+.left-side {
+  flex: 1;
+  max-width: 250px;
+  margin-left: -18rem;
+}
+
+.left-side h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.divider {
+  width: 64px;
+  height: 2px;
+  background-color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.account-links {
+  list-style: none;
+  padding: 0;
+}
+
+.account-links li {
+  margin-bottom: 1rem;
+}
+
+.account-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.account-links a:hover {
+  color: #4CAF50;
+}
+
+.account-links img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.logout {
+  margin-top: 4rem;
+}
+
+.logout a {
+  display: flex;
+  align-items: center;
+  color: #e3342f;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.logout a:hover {
+  color: #4CAF50;
+}
+
+/* Right Side Content */
+.right-side {
+  flex: 2;
+    margin-right: -8rem;
+
+}
+
+.horizontal-line {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+    margin-right: -8rem;
+
+}
+
+.welcome-message {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.greeting {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.welcome-message a {
+  color: #1d4ed8;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.welcome-message a:hover {
+  color: #3b82f6;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-section h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.profile-section a {
+  color: #1d4ed8;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.profile-section a:hover {
+  color: #3b82f6;
+}
+
+/* Profile Details */
+.profile-details {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column for mobile */
+  gap: 1rem;
+  color: #555;
+}
+
+.profile-details p {
+  margin: 0.5rem 0;
+}
+
+.profile-details span {
+  font-weight: bold;
+}
+
+/* Adjust grid layout for larger screens */
+@media (min-width: 768px) {
+  .profile-details {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on tablet and up */
+  }
+}
+
+
+
+
+/* Footer Section */
+.footer-section {
+    background-color: #252626;
+    color: #ffffff;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+      margin-top: 8rem; /* Additional top margin for container */
+
+}
+
+.footer-content {
+    max-width: 97%;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.footer-contact span {
+    font-size: 1rem;
+    display: block;
+}
+
+.footer-social-icons a img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default */
+    gap: 1rem;
+    text-align: left;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #28a745;
+}
+
+.footer-legal {
+    max-width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid #ffffff;
+    padding-top: 1rem;
+    color: #b0b0b0; /* Dimmed color */
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-legal a {
+    color: #b0b0b0;
+    font-size: 0.75rem;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+    color: #28a745;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-nav {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+        text-align: center; /* Align text left on desktop */
+    }
+
+    .footer-legal {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+ }
