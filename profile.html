@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSY Addis Festival</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="profile.js"></script>
+</head>
+<body class="font-inknut-antiqua">
+
+<!-- Navbar -->
+<nav class="navbar fixed top-0 w-full h-20 flex items-center px-1 backdrop-blur-md backdrop-brightness-75">
+    <a href="index.html"><img src="psy.png" class="logo"></a>
+    <div class="nav-links flex-1 justify-center hidden md:flex space-x-6">
+        <a href="Gallery.html" class="text-white font-bold hover:text-yellow-400">Gallery</a>
+        <a href="Aboutus.html" class="text-white font-bold hover:text-yellow-400">About Us</a>
+    </div>
+    <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
+        <a href="#" class="text-white font-bold hover:text-yellow-400" id="loginButton">Login</a>
+        <a href="#" class="text-white font-bold hover:text-yellow-400">Store</a>
+    </div>
+    <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
+        <div class="bg-white w-8 h-1 mb-1"></div>
+        <div class="bg-white w-8 h-1 mb-1"></div>
+        <div class="bg-white w-8 h-1"></div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden md:hidden absolute top-20 left-20 w-full bg-gray-800 p-5 z-20">
+    <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
+    <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
+    <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
+    <a href="#" class="block text-white font-bold hover:text-yellow-400" id="loginButtonMobile">Login</a>
+</div>
+
+
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Left Side Content -->
+    <div class="left-side">
+        <h2 class="animate-left">Your Account</h2>
+        <div class="divider"></div>
+
+        <ul class="account-links">
+            <li>
+                <a href="#" id="account-preview-link" class="animate-left">
+                    <img src="account-icon.png" alt="Account Icon">
+                    <span>Account Preview</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="animate-left">
+                    <img src="profile-icon.png" alt="Profile Icon">
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="animate-left">
+                    <img src="orders-icon.png" alt="Orders Icon">
+                    <span>Orders</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout animate-left">
+            <a href="#">
+                <img src="logout-icon.png" alt="Logout Icon">
+                <span>Log Out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Right Side Content -->
+    <div class="right-side">
+        <div class="horizontal-line"></div>
+
+        <h3 class="profile-header">Profile</h3>
+        <p class="welcome-text">
+            Hi, dedicated member! Welcome to your profile. By being a member, you will have access to your collection.
+            Feel free to add or change your information, password, or email address anytime you wish.
+        </p>
+
+        <!-- Profile Form -->
+        <div class="profile-form">
+            <div class="form-column">
+                <label>First Name <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter first name" required>
+
+                <label>Street <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter street address"  required>
+
+                <label>Phone Number <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="form-column">
+                <label>Last Name <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter last name" required>
+
+                <label>City <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter city" required>
+
+                <label>Country <span class="required-text">* required</span></label>
+                <select required>
+                    <option value="">Select your country</option>
+                    <!-- Add options here -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Update Button -->
+        <div class="button-container">
+            <button class="update-profile-btn">Update Profile</button>
+        </div>
+
+        <!-- Divider Line -->
+        <hr class="horizontal-line">
+
+        <!-- New Section for Changing Email Address -->
+        <h2 class="form-header">Change Email Address</h2>
+
+        <div class="profile-form">
+            <!-- First Column -->
+            <div class="form-column">
+                <label>Old Email Address <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter old email address" required>
+
+                <label>New Email Address <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Enter new email address" required>
+            </div>
+
+            <!-- Second Column -->
+            <div class="form-column">
+                <label>Verify Email Address <span class="required-text">* required</span></label>
+                <input type="text" placeholder="Re-enter new email address" required>
+
+                <!-- Update Button -->
+                <button class="update-button">Update Email Address</button>
+            </div>
+        </div>
+        <!-- Divider Line -->
+        <div class="horizontal-line"></div>
+
+        <!-- Change Password Section -->
+        <h2 class="form-title">Change Password</h2>
+
+        <div class="profile-form">
+            <!-- Left Column -->
+            <div class="form-column">
+                <label>Old Password <span class="required-text">* required</span></label>
+                <input type="password" placeholder="Enter your old password" required>
+
+                <label>New Password <span class="required-text">* required</span></label>
+                <input type="password" placeholder="Enter your new password" required>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form-column">
+                <label>Verify Password <span class="required-text">* required</span></label>
+                <input type="password" placeholder="Re-enter your new password" required>
+
+                <!-- Update Password Button -->
+                <button class="update-button">Update Password</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- Footer Section -->
+<footer class="footer-section py-8">
+    <div class="footer-content flex flex-col md:flex-row justify-between items-start px-4 md:px-0">
+
+        <!-- Logo and Contact Info -->
+        <div class="footer-logo mb-4 md:mb-0">
+            <a href="index.html"><img src="psy.png" alt="Logo"></a>
+        </div>
+
+        <div class="footer-contact text-center md:text-left">
+            <span>Contact us at: support@psy.com</span>
+
+            <!-- Social Media Icons -->
+            <div class="footer-social-icons flex justify-center md:justify-start space-x-4 mt-2">
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+
+        <!-- Footer Navigation Links -->
+        <div class="footer-nav grid grid-cols-1 md:grid-cols-3 gap-2 text-left mt-6 md:mt-0">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Gallery</a>
+            <a href="#">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+        </div>
+    </div>
+
+    <!-- Footer Legal Section -->
+    <div class="footer-legal mt-8 py-4 text-center md:text-left text-gray-400">
+        <span>&copy; 2024 Psyaddis. All rights reserved.</span>
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Cookies</a>
+            <a href="#">Disclaimer</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
