@@ -227,8 +227,9 @@ body {
  .events-grid {
    display: flex;
    gap: 30px;
-   overflow: hidden;
+  overflow-x: hidden; /* Hide the scrollbar */
    scroll-snap-type: x mandatory; /* Snap effect */
+     scroll-behavior: smooth; /* Smooth scrolling effect */
  }
 
 .event-card {
@@ -408,33 +409,41 @@ body {
 
 body {
     background-color: #252626; /* Background color for the whole page */
+        overflow-x: hidden;
+
 }
 
+/* Music Section */
 .latest-releases {
     padding: 20px;
-    background-color: #252626; /* Set the same background color as the body */
+    background-color: #252626;
     color: white;
-    text-align: left;
-    width: 100%; /* Set the section to be full width */
-    margin: 0 auto; /* Center the container */
+    text-align: center;
+    width: 100vw;
+    margin: 0 auto;
+        overflow-x: hidden;
+
 }
 
 .latest-releases h2 {
     font-size: 2.2em;
     margin-bottom: 20px;
-        margin-left: 4rem;
-
+    color: #ffffff;
 }
 
 .releases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex; /* Change from grid to flex */
     gap: 15px;
-    width: 95%; /* Set the grid to be 95% of its parent */
-    margin: 0 auto; /* Center the grid */
+    overflow-x: hidden; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Snap effect for horizontal scroll */
+    padding: 10px;
+    margin: 0 auto;
+    width: 95%;
 }
 
 .release-card {
+    min-width: 300px; /* Set a fixed width for horizontal scrolling */
+    height: 400px;
     background-color: #333;
     border-radius: 10px;
     overflow: hidden;
@@ -443,8 +452,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 95%; /* Set the card width to 95% */
-    height: 400px;
+    scroll-snap-align: center; /* Center card in view when scrolled */
 }
 
 .release-image {
@@ -517,26 +525,6 @@ body {
     background-color: #00cc7a;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.icon-button {
-    width: 50px; /* Set your desired icon size */
-    height: 50px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-radius: 50%; /* Optional: round icon */
-}
-
-.icon-button:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
-}
-
 
 @media (max-width: 768px) { /* Target mobile screens */
     .releases-grid {
@@ -596,7 +584,7 @@ body {
 }
 
 .more-events-button {
-    width: 97%;
+    width: 95%;
     height: 100px;
     margin: 30px auto 0;
     display: flex;
