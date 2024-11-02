@@ -11,18 +11,57 @@
 </head>
 <body class="font-inknut-antiqua bg-custom-blue">
 
-<!-- Navbar -->
-<nav class="navbar fixed top-0 w-full h-20 flex items-center px-4 backdrop-blur-md backdrop-brightness-75 z-10">
-    <a href="index.html"><img src="psy.png" class="logo" alt="Logo"></a>
-    <div class="nav-links flex-1 flex justify-center space-x-6">
-        <a href="#" class="text-white font-bold hover:text-yellow-400">Gallery</a>
-        <a href="#" class="text-white font-bold hover:text-yellow-400">About Us</a>
+<nav class="navbar fixed top-0 w-full h-20 flex items-center px-4 backdrop-blur-md backdrop-brightness-75">
+    <a href="index.html"><img src="psy.png" class="logo"></a>
+    <div class="nav-links flex-1 justify-center hidden md:flex space-x-6">
+        <a href="Gallery.html" class="text-white font-bold hover:text-yellow-400">Gallery</a>
+        <a href="Aboutus.html" class="text-white font-bold hover:text-yellow-400">About Us</a>
     </div>
-    <div class="flex space-x-6 mr-16">
+    <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
         <a href="#" class="text-black font-bold hover:text-yellow-400">Store</a>
         <a href="#" class="text-black font-bold hover:text-yellow-400">Login</a>
     </div>
+    <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
+        <div class="bg-white w-8 h-1 mb-1"></div>
+        <div class="bg-white w-8 h-1 mb-1"></div>
+        <div class="bg-white w-8 h-1"></div>
+    </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
+    <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
+    <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
+    <a href="#" class="block text-black font-bold hover:text-yellow-400">Store</a>
+    <a href="#" class="block text-black font-bold hover:text-yellow-400">Login</a>
+</div>
+
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden'); // Toggle visibility
+
+        // GSAP Animation
+        if (!mobileMenu.classList.contains('hidden')) {
+            gsap.fromTo(mobileMenu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5 });
+        } else {
+            gsap.to(mobileMenu, { opacity: 0, y: -20, duration: 0.5 });
+        }
+    });
+</script>
+
+
+<!-- Hidden Menu for Mobile -->
+<div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
+    <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
+    <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
+    <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
+    <a href="#" class="block text-white font-bold hover:text-yellow-400">Login</a>
+</div>
+
 
 <!-- Main Content -->
 <main class="flex flex-col lg:flex-row items-start mt-40 px-8 lg:px-16 space-y-8 lg:space-y-0 lg:space-x-16">
