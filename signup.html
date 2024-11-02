@@ -143,7 +143,6 @@
     });
 
 
-
 </script>
 
 <!-- Sign Up Card -->
@@ -156,29 +155,28 @@
         <hr class="border-t-2 border-gray-300 mb-6">
 
         <!-- Form Section -->
-        <form>
+        <form id="signUpForm">
             <label class="block text-md md:text-lg mb-2">E-mail address*</label>
-            <input type="email" placeholder="Email address" style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-4 placeholder-gray-400 ">
+            <input type="email" placeholder="Email address" required style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-4 placeholder-gray-400">
 
             <label class="block text-md md:text-lg mb-2">Password*</label>
-            <input type="password" placeholder="Password" style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-4 placeholder-gray-400 ">
+            <input id="password" type="password" placeholder="Password" required style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-4 placeholder-gray-400">
 
-            <label class="block text-md md:text-lg mb-2">Repeat new password*</label>
-            <input type="password" placeholder="Repeat new password" style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-6 placeholder-gray-400 ">
+            <label class="block text-md md:text-lg mb-2">Repeat password*</label>
+            <input id="confirmPassword" type="password" placeholder="Repeat new password" required style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-6 placeholder-gray-400">
 
-            <button class="w-full h-12 text-white font-bold">
+            <button type="submit" class="w-full h-12 text-white font-bold">
                 Sign Up
             </button>
         </form>
-
 
         <div id="login-prompt" class="text-left mt-4 text-gray-400 text-md md:text-lg">
             Already have an account?
             <a href="login.html" class="text-green-500 font-bold underline">Log in</a>
         </div>
-
     </div>
 </div>
+
 <style>
     /* Button base styles */
 button {
@@ -207,7 +205,18 @@ button:focus {
 
 </style>
 
+<script>
+    document.getElementById('signUpForm').addEventListener('submit', function(event) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
+        if (password !== confirmPassword) {
+            event.preventDefault(); // Prevent form submission
+            alert("Passwords do not match. Please re-enter your password.");
+        }
+    });
+
+</script>
 <!-- Footer Section -->
 <footer class="footer-section py-8">
     <div class="footer-content flex flex-col md:flex-row justify-between items-start px-4 md:px-0">
