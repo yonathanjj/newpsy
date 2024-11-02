@@ -202,7 +202,7 @@
             <label class="block text-md md:text-lg mb-2">Password*</label>
             <input type="password" placeholder="Password" style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-4 placeholder-gray-400 ">
 
-            <button style="border-radius: 20px; background: linear-gradient(to right, #29F308, #188D05);" class="w-full h-12 text-white font-bold">
+            <button class="w-full h-12 text-white font-bold">
                 Login
             </button>
         </form>
@@ -218,7 +218,33 @@
         </div>
     </div>
 </div>
+<style>
+    /* Button base styles */
+button {
+    border-radius: 20px;
+    background: linear-gradient(to right, #29F308, #188D05);
+    color: white;
+    font-weight: bold;
+    width: 100%; /* Full width */
+    height: 48px; /* Adjusted height for better visual appeal */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+}
 
+/* Hover effect */
+button:hover {
+    transform: scale(1.05); /* Scale up slightly on hover */
+    background: linear-gradient(to right, #1EDC00, #188D05); /* Darker gradient on hover */
+}
+
+/* Focus effect (optional) */
+button:focus {
+    outline: none; /* Remove the default outline */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Add a subtle shadow */
+}
+
+</style>
 
 <!-- Footer Section -->
 <footer class="footer-section py-8">
