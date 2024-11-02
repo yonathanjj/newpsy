@@ -44,6 +44,87 @@ body {
     color: yellow;
 }
 
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure the navbar is on top */
+    width: 100%; /* Full width of the container */
+    position: fixed; /* Keep it at the top */
+    left: 0; /* Align to the left edge */
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure the navbar is on top */
+    width: 100%; /* Full width of the container */
+    position: fixed; /* Keep it at the top */
+    left: 0; /* Align to the left edge */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out the items */
+    align-items: center; /* Center items vertically */
+}
+
+/* Hamburger Styles */
+.hamburger {
+    cursor: pointer; /* Change cursor on hover */
+    flex-direction: column; /* Stack lines vertically */
+    margin-left: auto; /* Push hamburger to the right */
+}
+
+.hamburger div {
+    width: 30px; /* Set width of the lines */
+    height: 3px; /* Set height of the lines */
+    background-color: black; /* Set the color of the lines to black */
+    margin: 3px 0; /* Space between lines */
+    transition: background-color 0.3s ease; /* Smooth transition for color changes */
+}
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none; /* Initially hidden */
+    background: rgba(0, 0, 0, 0.9); /* Black background for the mobile menu */
+    position: fixed; /* Fix position so it covers the full width */
+    top: 80px; /* Adjust based on navbar height */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    margin: 0; /* Remove margin */
+    padding: 1rem; /* Add padding for the mobile menu */
+    z-index: 20; /* Make sure it's on top of other elements */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20px); /* Start slightly above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Show menu when hamburger is clicked */
+.mobile-menu:not(.hidden) {
+    display: block; /* Show the menu */
+    opacity: 1; /* Make it visible */
+    transform: translateY(0); /* Move it to the default position */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide desktop nav links */
+    }
+
+    .mobile-menu {
+        padding: 2rem 0; /* Add padding to the mobile menu for top and bottom */
+    }
+
+    .mobile-menu a {
+        text-align: center; /* Center text in mobile menu */
+        display: block; /* Block display for each link */
+        margin: 1rem 0; /* Spacing between links */
+        color: white; /* Text color for visibility */
+        font-weight: bold; /* Bold text */
+        font-size: 1.5rem; /* Increase font size for better readability */
+    }
+}
+
+
 .container {
     max-width: 97%;
     margin: 2rem auto;
