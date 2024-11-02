@@ -57,61 +57,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const eventsGrid = document.querySelector(".events-grid");
-    const eventCards = document.querySelectorAll(".event-card");
-    const cardWidth = eventCards[0].offsetWidth + 30; // Card width + gap
-    let currentPosition = 0;
 
-    function slide(direction) {
-        if (direction === "left") {
-            currentPosition -= cardWidth;
-            if (currentPosition < -cardWidth * (eventCards.length - 1)) {
-                currentPosition = 0; // Loop back to start
-            }
-        } else {
-            currentPosition += cardWidth;
-            if (currentPosition > 0) {
-                currentPosition = -cardWidth * (eventCards.length - 1); // Loop back to end
-            }
-        }
+ document.addEventListener('DOMContentLoaded', () => {
+     const eventsGrid = document.getElementById('eventsGrid');
+     const leftScroll = document.getElementById('leftScroll');
+     const rightScroll = document.getElementById('rightScroll');
 
-        eventsGrid.style.transform = `translateX(${currentPosition}px)`;
-    }
+     // Add event listener to scroll left
+     leftScroll.addEventListener('click', () => {
+         eventsGrid.scrollBy({
+             top: 0,
+             left: -300, // Adjust this value for scroll distance
+             behavior: 'smooth'
+         });
+     });
 
-    document.getElementById("left-icon").addEventListener("click", () => slide("left"));
-    document.getElementById("right-icon").addEventListener("click", () => slide("right"));
-});
-
-
-
-
-const eventsGrid = document.querySelector('.events-grid');
-let isScrollingEvents = false;
-
-function scrollToNextEvent(direction) {
-    const cardWidth = eventsGrid.offsetWidth; // Get the width of the container
-    const currentScroll = eventsGrid.scrollLeft; // Get current scroll position
-    const targetScroll = currentScroll + (direction * cardWidth); // Calculate the target scroll position
-
-    eventsGrid.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth', // Smooth scrolling effect
-    });
-}
-
-// Event listener for mouse wheel
-eventsGrid.addEventListener('wheel', (event) => {
-    if (window.innerWidth <= 768) { // Check if in mobile view
-        event.preventDefault(); // Prevent the default scrolling behavior
-        if (!isScrollingEvents) {
-            isScrollingEvents = true;
-            const direction = event.deltaY > 0 ? 1 : -1; // Determine the scroll direction
-            scrollToNextEvent(direction);
-            setTimeout(() => isScrollingEvents = false, 600); // Set a timeout to prevent rapid scrolling
-        }
-    }
-});
+     // Add event listener to scroll right
+     rightScroll.addEventListener('click', () => {
+         eventsGrid.scrollBy({
+             top: 0,
+             left: 300, // Adjust this value for scroll distance
+             behavior: 'smooth'
+         });
+     });
+ });
 
 
 // Event listener for touch swipe
@@ -179,30 +148,7 @@ progressBar.addEventListener('input', () => {
     audio.currentTime = (progressBar.value / 100) * audio.duration;
 });
 
-const releasesGrid = document.querySelector('.releases-grid');
-let isScrolling = false;
 
-function scrollToNextCard(direction) {
-    const cardWidth = releasesGrid.offsetWidth; // Get the width of the container
-    const currentScroll = releasesGrid.scrollLeft; // Get current scroll position
-    const targetScroll = currentScroll + (direction * cardWidth); // Calculate the target scroll position
-
-    releasesGrid.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth', // Smooth scrolling effect
-    });
-}
-
-// Event listener for mouse wheel
-releasesGrid.addEventListener('wheel', (event) => {
-    event.preventDefault(); // Prevent the default scrolling behavior
-    if (!isScrolling) {
-        isScrolling = true;
-        const direction = event.deltaY > 0 ? 1 : -1; // Determine the scroll direction
-        scrollToNextCard(direction);
-        setTimeout(() => isScrolling = false, 600); // Set a timeout to prevent rapid scrolling
-    }
-});
 
 // Event listener for touch swipe
 let startX;
