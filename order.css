@@ -178,136 +178,18 @@ body {
 /* Right Side Content */
 .right-side {
   flex: 2;
-  padding-right: 1rem;
+  padding: 1rem; /* Adjusted padding for better responsiveness */
 }
-
-.horizontal-line {
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 1rem;
-}
-
-.profile-header {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.welcome-text {
-  font-size: 13px;
-  margin-bottom: 2rem;
-  color: #aaa;
-}
-
-/* Profile Form */
-.profile-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.form-column label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.required-text {
-  font-size: 12px;
-  color: #6c757d; /* Updated to pale white */
-  margin-left: 2rem; /* Added more gap from the label */
-}
-
-input[type="text"], select {
-  width: 400px;
-  height: 70px;
-  background-color: #343a40;
-  color: #f5f5f5; /* Placeholder text color */
-  padding: 10px;
-  border: none;
-  margin-bottom: 1rem;
-}
-
-input[type="text"]::placeholder {
-  color: #d3d3d3; /* Pale white placeholder color */
-}
-
-select {
-  color: #aaa;
-  cursor: pointer;
-}
-
-/* Button */
-.button-container {
-  text-align: right;
-}
-
-.update-profile-btn {
-  width: 200px;
-  height: 50px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.update-profile-btn:hover {
-  background-color: #45a049;
-}
-
-/* Mobile Responsive Styling for Vertical Stacking */
-@media (max-width: 767px) {
-  /* Main Container */
-  .container {
-    flex-direction: column; /* Stack sections vertically */
-    padding: 0 1rem;
-    margin-top: 5rem;
-    gap: 1.5rem;
-  }
-
-  /* Left Side Content */
-  .left-side {
-    max-width: 90%; /* Set max-width to 90% for smaller sections */
-    margin-left: auto; /* Center align */
-    margin-right: auto; /* Center align */
-  }
-
-  .left-side h2 {
-    font-size: 1.2rem; /* Adjust font size for better visibility */
-    margin-top: 0;
-  }
-
-  .divider {
-    width: 100%; /* Extend divider width to match container */
-  }
-
-  /* Account Links */
-  .account-links a {
-    font-size: 1rem; /* Font size for account links */
-    padding: 0.5rem 0; /* Vertical padding for links */
-  }
-
-  .account-links img {
-    width: 18px; /* Adjust icon size */
-    height: 18px; /* Adjust icon size */
-  }
-
-  .logout {
-    margin-top: 2rem; /* Space above logout section */
-  }
 
 /* Horizontal Line */
 .horizontal-line {
   border-bottom: 2px solid #ccc;
-  margin: 1.5rem 0; /* Adjust margin to move content higher */
+  margin-bottom: 1rem;
 }
 
 /* Order Title */
 .order-title {
-  font-size: 50px; /* Larger font size for visibility */
+  font-size: 50px;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #333;
@@ -329,7 +211,7 @@ select {
   color: #333;
   font-weight: bold;
   text-align: center;
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: normal; /* Allow wrapping on all screen sizes */
 }
 
 /* Link inside No Orders Message */
@@ -341,7 +223,7 @@ select {
 /* Mobile Responsive Styling */
 @media (max-width: 767px) {
   .order-title {
-    font-size: 32px; /* Adjusted font size for smaller screens */
+    font-size: 32px;
     margin-bottom: 0.5rem;
   }
 
@@ -351,8 +233,14 @@ select {
 
   .no-orders-message {
     font-size: 14px;
+    padding: 0.8rem;
+  }
+
+  .right-side {
+    padding: 0.5rem;
+  }
+
+  .button-container {
+    text-align: center;
   }
 }
-
-
-
