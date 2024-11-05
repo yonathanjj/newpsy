@@ -210,11 +210,11 @@ body {
 
 
 .events-section {
-  position: relative;
-  padding: 40px;
-  background-color: #252626;
-  text-align: center;
-  overflow: hidden;
+    position: relative;
+    padding: 40px;
+    background-color: #252626;
+    text-align: center;
+    overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 .events-section h2 {
@@ -223,15 +223,16 @@ body {
   color: #ffffff;
 }
 
-
- .events-grid {
-   display: flex;
-   gap: 30px;
-  overflow-x: hidden; /* Hide the scrollbar */
-   scroll-snap-type: x mandatory; /* Snap effect */
-     scroll-behavior: smooth; /* Smooth scrolling effect */
- }
-
+.events-grid {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto; /* Enable scrolling but hide scrollbar */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.events-grid::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in WebKit browsers */
+}
 .event-card {
   min-width: 300px; /* Set a fixed card width */
   height: 400px;
@@ -242,6 +243,7 @@ body {
   position: relative;
   transition: transform 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
 }
 
 .event-image {
