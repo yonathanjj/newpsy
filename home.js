@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Hamburger menu toggle
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.querySelector(".mobile-menu");
 
     hamburger.addEventListener("click", function () {
         mobileMenu.classList.toggle("hidden");
     });
-});
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Existing GSAP animations
+    // GSAP animations
     gsap.from(".main-content h1", {
         duration: 1.5,
         opacity: 0,
@@ -56,115 +54,138 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Horizontal scrolling for events grid
+    const eventsGrid = document.getElementById('eventsGrid');
+    const leftScroll = document.getElementById('leftScroll');
+    const rightScroll = document.getElementById('rightScroll');
 
+    if (eventsGrid && leftScroll && rightScroll) {
+        const cardWidth = document.querySelector('.event-card').offsetWidth + 30; // Adjust as needed
 
- document.addEventListener('DOMContentLoaded', () => {
-     const eventsGrid = document.getElementById('eventsGrid');
-     const leftScroll = document.getElementById('leftScroll');
-     const rightScroll = document.getElementById('rightScroll');
+        leftScroll.addEventListener('click', () => {
+            eventsGrid.scrollBy({ top: 0, left: -cardWidth, behavior: 'smooth' });
+        });
 
-     // Add event listener to scroll left
-     leftScroll.addEventListener('click', () => {
-         eventsGrid.scrollBy({
-             top: 0,
-             left: -300, // Adjust this value for scroll distance
-             behavior: 'smooth'
-         });
-     });
-
-     // Add event listener to scroll right
-     rightScroll.addEventListener('click', () => {
-         eventsGrid.scrollBy({
-             top: 0,
-             left: 300, // Adjust this value for scroll distance
-             behavior: 'smooth'
-         });
-     });
- });
-
-
-// Event listener for touch swipe
-let startXEvents;
-
-eventsGrid.addEventListener('touchstart', (event) => {
-    if (window.innerWidth <= 768) { // Check if in mobile view
-        startXEvents = event.touches[0].clientX; // Get the initial touch position
+        rightScroll.addEventListener('click', () => {
+            eventsGrid.scrollBy({ top: 0, left: cardWidth, behavior: 'smooth' });
+        });
     }
-});
 
-eventsGrid.addEventListener('touchmove', (event) => {
-    if (window.innerWidth <= 768) { // Check if in mobile view
-        const currentX = event.touches[0].clientX; // Get the current touch position
-        const direction = startXEvents - currentX; // Calculate the swipe direction
-
-        if (Math.abs(direction) > 30) { // If the swipe is significant enough
-            scrollToNextEvent(direction > 0 ? 1 : -1); // Scroll to the next or previous card
-            startXEvents = currentX; // Reset start position to prevent rapid scrolling
+    // Touch swipe for events grid
+    let startXEvents;
+    eventsGrid?.addEventListener('touchstart', (event) => {
+        if (window.innerWidth <= 768) {
+            startXEvents = event.touches[0].clientX;
         }
+    });
+
+    eventsGrid?.addEventListener('touchmove', (event) => {
+        if (window.innerWidth <= 768) {
+            const currentX = event.touches[0].clientX;
+            const direction = startXEvents - currentX;
+
+            if (Math.abs(direction) > 30) {
+                eventsGrid.scrollBy({ left: direction > 0 ? cardWidth : -cardWidth, behavior: 'smooth' });
+                startXEvents = currentX;
+            }
+        }
+    });
+
+    // Audio player
+    const playButton = document.querySelector('.play-button');
+    const audioPlayer = document.getElementById('audio-player');
+    const audio = document.getElementById('audio');
+    const pauseButton = document.querySelector('.pause-button');
+    const progressBar = document.querySelector('.progress-bar');
+    const currentTime = document.querySelector('.current-time');
+    const totalTime = document.querySelector('.total-time');
+
+    if (audio) {
+        audio.addEventListener('loadedmetadata', () => {
+            const minutes = Math.floor(audio.duration / 60);
+            const seconds = Math.floor(audio.duration % 60);
+            totalTime.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+        });
+
+        playButton?.addEventListener('click', () => {
+            audio.play().then(() => {
+                audioPlayer?.classList.remove('hidden');
+                gsap.fromTo(audioPlayer, { opacity: 0 }, { opacity: 1, duration: 1 });
+            }).catch(error => console.error("Error playing audio:", error));
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const minutes = Math.floor(audio.currentTime / 60);
+            const seconds = Math.floor(audio.currentTime % 60);
+            currentTime.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            progressBar.value = (audio.currentTime / audio.duration) * 100;
+        });
+
+        pauseButton?.addEventListener('click', () => {
+            audio.pause();
+            audioPlayer?.classList.add('hidden');
+        });
+
+        progressBar?.addEventListener('input', () => {
+            audio.currentTime = (progressBar.value / 100) * audio.duration;
+        });
     }
-});
 
-const playButton = document.querySelector('.play-button');
-const audioPlayer = document.getElementById('audio-player');
-const audio = document.getElementById('audio');
-const pauseButton = document.querySelector('.pause-button');
-const progressBar = document.querySelector('.progress-bar');
-const currentTime = document.querySelector('.current-time');
-const totalTime = document.querySelector('.total-time');
+    // Swipe for releases grid
+    const releasesGrid = document.getElementById('releasesGrid');
+    let startX;
 
-// Update total time when audio metadata is loaded
-audio.addEventListener('loadedmetadata', () => {
-    const minutes = Math.floor(audio.duration / 60);
-    const seconds = Math.floor(audio.duration % 60);
-    totalTime.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-});
+    releasesGrid?.addEventListener('touchstart', (event) => {
+        startX = event.touches[0].clientX;
+    });
 
-// Show player controls and play audio
-playButton.addEventListener('click', () => {
-    audio.play().then(() => {
-        audioPlayer.classList.remove('hidden'); // Show audio player when playing
-        gsap.fromTo(audioPlayer, { opacity: 0 }, { opacity: 1, duration: 1 });
-    }).catch(error => {
-        console.error("Error playing audio:", error);
+    releasesGrid?.addEventListener('touchmove', (event) => {
+        const currentX = event.touches[0].clientX;
+        const direction = startX - currentX;
+
+        if (Math.abs(direction) > 30) {
+            releasesGrid.scrollBy({ left: direction > 0 ? cardWidth : -cardWidth, behavior: 'smooth' });
+            startX = currentX;
+        }
     });
 });
 
-// Update current time and progress bar
-audio.addEventListener('timeupdate', () => {
-    const minutes = Math.floor(audio.currentTime / 60);
-    const seconds = Math.floor(audio.currentTime % 60);
-    currentTime.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-    progressBar.value = (audio.currentTime / audio.duration) * 100;
-});
+// JavaScript for scroll buttons in the latest-releases section
+document.addEventListener("DOMContentLoaded", function() {
+    const releasesGrid = document.querySelector(".releases-grid");
+    const scrollLeftButton = document.querySelector(".scroll-left");
+    const scrollRightButton = document.querySelector(".scroll-right");
 
-// Pause audio and hide player controls
-pauseButton.addEventListener('click', () => {
-    audio.pause();
-    audioPlayer.classList.add('hidden'); // Hide audio player when paused
-});
+    // Scroll settings
+    const scrollAmount = 320; // Adjust the scroll distance per click
 
-// Update progress bar on click
-progressBar.addEventListener('input', () => {
-    audio.currentTime = (progressBar.value / 100) * audio.duration;
-});
+    // Event listeners for scroll buttons
+    scrollLeftButton.addEventListener("click", function() {
+        releasesGrid.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth"
+        });
+    });
 
+    scrollRightButton.addEventListener("click", function() {
+        releasesGrid.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
+    });
 
+    // Optional: Hide left/right buttons at the start/end of scroll
+    function updateScrollButtons() {
+        const scrollLeft = releasesGrid.scrollLeft;
+        const maxScrollLeft = releasesGrid.scrollWidth - releasesGrid.clientWidth;
 
-// Event listener for touch swipe
-let startX;
-
-releasesGrid.addEventListener('touchstart', (event) => {
-    startX = event.touches[0].clientX; // Get the initial touch position
-});
-
-releasesGrid.addEventListener('touchmove', (event) => {
-    const currentX = event.touches[0].clientX; // Get the current touch position
-    const direction = startX - currentX; // Calculate the swipe direction
-
-    if (Math.abs(direction) > 30) { // If the swipe is significant enough
-        scrollToNextCard(direction > 0 ? 1 : -1); // Scroll to the next or previous card
-        startX = currentX; // Reset start position to prevent rapid scrolling
+        // Hide left button if at the start of the scroll
+        scrollLeftButton.style.display = scrollLeft <= 0 ? "none" : "block";
+        // Hide right button if at the end of the scroll
+        scrollRightButton.style.display = scrollLeft >= maxScrollLeft ? "none" : "block";
     }
+
+    // Update button visibility on scroll
+    releasesGrid.addEventListener("scroll", updateScrollButtons);
+    updateScrollButtons(); // Initial check
 });
-
-
