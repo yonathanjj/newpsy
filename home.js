@@ -22,13 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         y: 20
     });
 
-    gsap.from(".buttons button", {
-        duration: 1,
-        opacity: 0,
-        delay: 1,
-        y: 20,
-        stagger: 0.3
-    });
 
     gsap.from(".info-text", {
         duration: 1,
