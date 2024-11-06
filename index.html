@@ -23,7 +23,7 @@
     </div>
     <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
         <a href="#" class="text-white font-bold hover:text-yellow-400">Store</a>
-        <a href="#" class="text-white font-bold hover:text-yellow-400">Login</a>
+        <a href="login.html" class="text-white font-bold hover:text-yellow-400">Login</a>
     </div>
     <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
         <div class="bg-white w-8 h-1 mb-1"></div>
@@ -37,7 +37,7 @@
     <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
     <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
     <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
-    <a href="#" class="block text-white font-bold hover:text-yellow-400">Login</a>
+    <a href="login.html" class="block text-white font-bold hover:text-yellow-400">Login</a>
 </div>
 
 
@@ -63,7 +63,7 @@
     <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
     <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
     <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
-    <a href="#" class="block text-white font-bold hover:text-yellow-400">Login</a>
+    <a href="login.html" class="block text-white font-bold hover:text-yellow-400">Login</a>
 </div>
 
 
@@ -73,13 +73,33 @@
     <div class="main-content text-center absolute inset-0 flex flex-col justify-center items-center text-white">
         <h1 class="text-6xl font-bold">Almost time to rave at<br> PSY Addis</h1>
         <p class="text-2xl mt-4">October 11-12, 2024 | Addis Abeba, Ethiopia</p>
-        <div class="buttons mt-6 flex space-x-4">
-            <button class="info-btn border border-white px-10 py-2 rounded-full text-lg">Info</button>
+
+        <!-- Buttons Container -->
+        <div class="buttons mt-6 flex space-x-4 relative">
+            <div class="info-btn-container relative">
+                <!-- Hidden checkbox for toggling dropdown -->
+                <input type="checkbox" id="toggle-info" class="toggle-info hidden">
+
+                <!-- Info Button (styled identically to Tickets button) -->
+                <label for="toggle-info" class="info-btn border border-white px-10 py-2 rounded-full text-lg cursor-pointer">
+                    Info
+                </label>
+
+                <!-- Dropdown for Info Button -->
+                <div class="dropdown-info absolute top-full left-1/2 transform -translate-x-1/2 mt-2 p-6 bg-black text-white rounded-lg shadow-lg w-96">
+                    <h3 class="text-xl font-bold mb-2">Event Details</h3>
+                    <p class="mb-1"><strong>Date:</strong> October 11-12, 2024</p>
+                    <p class="mb-1"><strong>Time:</strong> 6:00 PM - 2:00 AM</p>
+                    <p class="mb-1"><strong>Location:</strong> Addis Abeba, Ethiopia</p>
+                    <p class="mt-2"><strong>Details:</strong> Join us for an unforgettable night of music, dance, and celebration at PSY Addis.</p>
+                </div>
+            </div>
+
+            <!-- Tickets Button -->
             <button class="tickets-btn border border-white px-10 py-2 rounded-full text-lg">Tickets</button>
         </div>
     </div>
 </div>
-
 
 <div class="info-section bg-gray-900 text-white py-20 px-4 flex flex-col md:flex-row items-center">
     <div class="info-text md:w-1/2 md:mr-16 mb-10 md:mb-0">
