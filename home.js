@@ -47,6 +47,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+// Select the info button and the dropdown
+const infoButton = document.querySelector('.info-btn');
+const dropdown = document.querySelector('.dropdown-info');
+
+// Toggle dropdown visibility on button click
+infoButton.addEventListener('click', () => {
+    dropdown.classList.toggle('visible');
+});
+
+
     // Horizontal scrolling for events grid
     const eventsGrid = document.getElementById('eventsGrid');
     const leftScroll = document.getElementById('leftScroll');
