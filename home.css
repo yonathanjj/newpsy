@@ -133,49 +133,105 @@ body {
 }
 
 /* Buttons */
-.buttons .info-btn, .tickets-btn {
+.buttons .info-btn,
+.buttons .tickets-btn {
     width: 220px;
     height: 50px;
     border-radius: 30px;
     transition: all 0.3s ease;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
-.buttons .info-btn:hover, .tickets-btn:hover {
+.buttons .info-btn:hover,
+.buttons .tickets-btn:hover {
     background-color: white;
     color: black;
 }
 
+/* Adjust spacing between buttons */
+.buttons .info-btn + .tickets-btn {
+    margin-left: 20px;
+}
+
+/* Dropdown styling */
+/* Add a hidden class to initially hide the dropdown */
+.dropdown-info {
+    position: absolute;
+    top: 100%; /* Positioned below the button */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.5rem;
+    padding: 1.5rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 24rem; /* Wider to accommodate detailed info */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Smooth fade-in transition */
+}
+
+.dropdown-info.visible {
+    visibility: visible;
+    opacity: 1; /* Make visible when class is added */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+/* Paragraph spacing */
+.dropdown-info p {
+    margin: 0.5rem 0; /* Consistent spacing */
+}
+
+.dropdown-info h3 {
+    font-size: 1.25rem; /* Larger title font */
+}
+
+.dropdown-info p strong {
+    color: #ffcc00; /* Optional highlight color */
+}
 
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .main-content h1 {
-        font-size: 3rem; /* Smaller font size for mobile */
+        font-size: 3rem;
     }
-
     .main-content p {
-        font-size: 1.2rem; /* Smaller font size for mobile */
+        font-size: 1.2rem;
     }
-
     .buttons .info-btn,
     .buttons .tickets-btn {
         width: 180px; /* Adjust button width */
     }
+    .dropdown-info {
+        width: 90vw; /* Responsive width for mobile */
+        max-width: 320px; /* Prevent excessive width */
+    }
 }
 
-/* Extra small devices */
 @media (max-width: 480px) {
     .main-content h1 {
-        font-size: 2.5rem; /* Even smaller for very small devices */
+        font-size: 2.5rem;
     }
-
     .main-content p {
-        font-size: 1rem; /* Adjust paragraph font size */
+        font-size: 1rem;
     }
-
     .buttons .info-btn,
     .buttons .tickets-btn {
         width: 150px; /* Further adjust button width */
+    }
+    .dropdown-info {
+        width: 90vw; /* Constrain dropdown on small screens */
+        max-width: 280px;
     }
 }
 
