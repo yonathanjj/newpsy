@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Inknut Antiqua', serif;
-    background-color: #f5f5f5;
+    background-color: #252626;
     margin: 0;
 }
 
@@ -21,7 +21,7 @@ body {
 
 /* Navigation Links */
 .nav-links a {
-    color: black;
+    color: white;
     font-weight: bold;
     font-size: 1rem;
     transition: color 0.3s, transform 0.3s; /* Added transform for scale */
@@ -147,6 +147,28 @@ body {
     transform: translateY(30px); /* Move up for animation */
     animation: fadeInUp 1s forwards; /* Apply animation */
 }
+/* Section styling */
+.section {
+    padding: 20px;
+    color: white; /* Makes the text white */
+}
+
+/* Background color for sections */
+.bg-dark {
+    background-color: #252626; /* Set background color */
+}
+
+/* Optional: Styling for header title */
+.header-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Styling for content text */
+.content-section {
+    font-size: 1rem;
+    line-height: 1.6;
+}
 
 /* Team Section */
 .team-section {
@@ -200,28 +222,60 @@ body {
 }
 
 
+
 /* Footer Section */
 .footer-section {
-    background-color: #f5f5f5;
-    color: #000000;
-    max-width: 98%;
+    background-color: #252626;
+    color: #ffffff;
+    max-width: 100%;
     margin: 0 auto;
-margin-top: 15rem;
     padding: 1rem;
 }
 
-/* Existing footer CSS */
 .footer-content {
     max-width: 97%;
     margin: 0 auto;
 }
 
+.footer-logo img {
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.footer-contact span {
+    font-size: 1rem;
+    display: block;
+}
+
+.footer-social-icons a img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default */
+    gap: 1rem;
+    text-align: left;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #28a745;
+}
+
 .footer-legal {
-    max-width: 98%;
+    max-width: 95%;
     margin: 0 auto;
-    border-top: 1px solid #000000;
+    border-top: 1px solid #ffffff;
     padding-top: 1rem;
-    color: #b0b0b0;
+    color: #b0b0b0; /* Dimmed color */
     font-size: 0.75rem;
     display: flex;
     flex-direction: column;
@@ -238,6 +292,7 @@ margin-top: 15rem;
 .footer-legal a:hover {
     color: #28a745;
 }
+
 
 /* Responsive styles */
 @media (min-width: 768px) {
