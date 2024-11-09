@@ -1,30 +1,16 @@
-/* Font and base styles */
+/* Base Styles */
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&display=swap');
+
 body {
     font-family: 'Inknut Antiqua', serif;
-      background-color: #252626;
+    background-color: #252626; /* Background color set for the whole page */
 }
 
-/* Background image */
-.hero {
-    background-image: url('event4.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-}
 
-/* Background overlay */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Navbar styles */
+/* Navbar */
 .navbar {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Ensure the navbar is on top */
 }
 
 .logo {
@@ -32,19 +18,15 @@ body {
     margin-left: 4rem;
 }
 
-.nav-item {
+.nav-links a {
     color: white;
     font-weight: bold;
-        font-size: 1.25rem;
+    font-size: 1rem;
     transition: color 0.3s;
 }
 
-.nav-item:hover {
+.nav-links a:hover {
     color: yellow;
-}
-
-.flex.mr-16 {
-    margin-right: 4rem;
 }
 
 /* Navbar Styles */
@@ -77,6 +59,13 @@ body {
     margin-left: auto; /* Push hamburger to the right */
 }
 
+.hamburger div {
+    width: 30px; /* Set width of the lines */
+    height: 3px; /* Set height of the lines */
+    background-color: white; /* Set the color of the lines to black */
+    margin: 3px 0; /* Space between lines */
+    transition: background-color 0.3s ease; /* Smooth transition for color changes */
+}
 /* Mobile Menu Styles */
 .mobile-menu {
     display: none; /* Initially hidden */
@@ -119,588 +108,142 @@ body {
         font-size: 1.5rem; /* Increase font size for better readability */
     }
 }
+/* Contact Page Layout */
+.left-section h1 {
+    font-size: 55px;
+        color: #fff;
 
-
-
-/* Main content */
-.main-content h1 {
-    font-size: 5rem;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.main-content p {
-    font-size: 1.5rem;
+.left-section p {
+    font-size: 24px;
+    line-height: 1.5; /* Improved spacing */
+    color: #fff;
+
 }
 
-/* Buttons */
-.buttons .info-btn,
-.buttons .tickets-btn {
-    width: 220px;
-    height: 50px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
-    display: flex;
+.contact-button {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px;
-    font-size: 1rem;
-    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    border: 2px solid white;
+    border-radius: 25px;
+        color: #fff;
 }
 
-.buttons .info-btn:hover,
-.buttons .tickets-btn:hover {
-    background-color: white;
-    color: black;
+/* Input Fields */
+.input-field {
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background-color: #252626; /* Background color set for the whole page */
+    color: #fff;
+    outline: none;
 }
 
-/* Adjust spacing between buttons */
-.buttons .info-btn + .tickets-btn {
-    margin-left: 20px;
+/* Send Button Section */
+.send-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
 }
 
-/* Dropdown styling */
-/* Add a hidden class to initially hide the dropdown */
-.dropdown-info {
-    position: absolute;
-    top: 100%; /* Positioned below the button */
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 0.5rem;
-    padding: 1.5rem;
+.send-circle {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
     background-color: black;
-    color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 24rem; /* Wider to accommodate detailed info */
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* Initially hidden */
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Smooth fade-in transition */
+    transition: background-color 0.3s ease;
 }
 
-.dropdown-info.visible {
-    visibility: visible;
-    opacity: 1; /* Make visible when class is added */
-    transition: opacity 0.3s ease; /* Smooth fade-in */
+.send-text {
+    font-size: 2rem;
+        color: #fff;
 }
 
-/* Paragraph spacing */
-.dropdown-info p {
-    margin: 0.5rem 0; /* Consistent spacing */
+.send-section a:hover .send-circle {
+    background-color: yellow;
 }
 
-.dropdown-info h3 {
-    font-size: 1.25rem; /* Larger title font */
-}
-
-.dropdown-info p strong {
-    color: #ffcc00; /* Optional highlight color */
-}
-
-
-/* Responsive Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    .main-content h1 {
-        font-size: 3rem;
+ /* Navbar for mobile */
+    .navbar {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.2); /* Transparent background */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
-    .main-content p {
-        font-size: 1.2rem;
-    }
-    .buttons .info-btn,
-    .buttons .tickets-btn {
-        width: 180px; /* Adjust button width */
-    }
-    .dropdown-info {
-        width: 90vw; /* Responsive width for mobile */
-        max-width: 320px; /* Prevent excessive width */
-    }
-}
 
-@media (max-width: 480px) {
-    .main-content h1 {
-        font-size: 2.5rem;
+    /* Logo on the left */
+    .logo {
+        width: 120px; /* Increased logo size */
+        margin-left: 2rem; /* Increased left margin */
     }
-    .main-content p {
+
+    /* Horizontally aligned nav items */
+    .nav-items {
+        display: flex;
+        gap: 1rem;
+        flex-grow: 1; /* Ensures nav items take up available space */
+        justify-content: flex-end; /* Aligns nav items to the right */
+    }
+
+    /* Styling for nav items */
+    .nav-item {
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        transition: color 0.3s;
+    }
+
+    .nav-item:hover {
+        color: yellow;
+    }
+    .left-section h1 {
+        font-size: 1.2rem; /* Smaller heading size on mobile */
+            margin-left: 1rem;
+    }
+    .left-section p, .send-text {
         font-size: 1rem;
     }
-    .buttons .info-btn,
-    .buttons .tickets-btn {
-        width: 150px; /* Further adjust button width */
+    .contact-button {
+        width: 100%;
     }
-    .dropdown-info {
-        width: 90vw; /* Constrain dropdown on small screens */
-        max-width: 280px;
-    }
-}
-
-/* Info Section */
-.info-section {
-    background-color: #252626; /* Background color */
-}
-
-.info-text {
-    margin-left: 4rem;
-    font-size: 20px;
-}
-
-.info-image img {
-    width: 480px;
-    height: 480px;
-}
-
-/* Responsive styles */
-@media (max-width: 640px) {
- .info-text {
-        margin-left: 0;
+    .left-section, .right-section {
         text-align: center;
     }
 
-    .info-image img {
-        width: 100%; /* Make image responsive */
-        height: auto;
+    /* Stack input fields vertically on mobile */
+    .right-section form .flex {
+        flex-direction: column;
+    }
+
+    .input-field {
+        width: 100%;
     }
 }
 
 
 
-.events-section {
-    position: relative;
-    padding: 40px;
-    background-color: #252626;
-    text-align: center;
-    overflow-x: hidden; /* Hide horizontal overflow */
-}
-
-.events-section h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-.events-grid {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto; /* Enable scrolling but hide scrollbar */
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-}
-.events-grid::-webkit-scrollbar {
-    display: none; /* Hides scrollbar in WebKit browsers */
-}
-.event-card {
-  min-width: 300px; /* Set a fixed card width */
-  height: 400px;
-  margin: 0; /* Ensures no spacing around each card */
-  padding: 0; /* Removes any internal padding */
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      scroll-snap-align: start;
-}
-
-.event-image {
-  width: 100%;
-    height: 400px;
-  object-fit: cover;
-}
-
-.event-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%; /* Overlay height to cover half of the card */
-  background: linear-gradient(to top, rgba(255, 223, 0, 0.8), rgba(255, 223, 0, 0));
-  border-radius: 10px;
-  pointer-events: none;
-}
-
-.event-details {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  color: #ffffff;
-  z-index: 1;
-  text-align: left;
-}
-
-.event-details h3 {
-  font-size: 1.5em;
-  color: #ffffff;
-}
-
-.event-details p {
-  color: #f0f0f0;
-  margin: 5px 0;
-}
-
-.button-group {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-  justify-content: left;
-}
-
-.outline-button {
-  width: 130px;
-  height: 30px;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-  border-radius: 30px;
-  color: #ffffff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.outline-button:hover {
-  background-color: #ffffff;
-  color: #252626;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.icon-button {
-    width: 50px; /* Set your desired icon size */
-    height: 50px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-radius: 50%; /* Optional: round icon */
-}
-
-.icon-button:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect on hover */
-}
-
-
-
-/* Media query for mobile mode */
-@media (max-width: 768px) {
-  .events-grid {
-    display: flex; /* Change to flex for horizontal scrolling on mobile */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Snap effect */
-    padding: 0; /* Ensures no extra space around the grid */
-  }
-
-  .event-card {
-    scroll-snap-align: start; /* Snap alignment */
-    min-width: 90%; /* Ensures each card takes full width of the viewport */
-  }
-}
-
-
-
-/* Additional styling for the 'More Events' button */
-.more-events-button {
-  width: 97%;
-  height: 100px;
-  margin: 30px auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: transparent;
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: color 0.3s;
-  text-decoration: none; /* For link styling */
-}
-
-/* Text and arrow styling */
-.more-events-button span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 1;
-}
-
-.more-events-button span::after {
-  content: '→'; /* Arrow */
-  font-size: 40px;
-}
-
-/* Yellow fill effect on hover */
-.more-events-button::before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 223, 0, 0.8); /* Yellow overlay */
-  transition: top 0.4s ease;
-  z-index: 0;
-}
-
-/* Hover effect to animate fill from bottom up */
-.more-events-button:hover::before {
-  top: 0;
-}
-
-.more-events-button:hover {
-  color: #252626; /* Text color changes to match background */
-}
-
-
-
-
-
-/* Existing CSS */
-
-body {
-    background-color: #252626; /* Background color for the whole page */
-        overflow-x: hidden;
-
-}
-
-/* Music Section */
-.latest-releases {
-    padding: 20px;
-    background-color: #252626;
-    color: white;
-    text-align: center;
-    width: 100vw;
-    margin: 0 auto;
-        overflow-x: hidden;
-
-}
-
-.latest-releases h2 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
-.releases-grid {
-    display: flex; /* Change from grid to flex */
-    gap: 15px;
-    overflow-x: hidden; /* Enable horizontal scrolling */
-    scroll-snap-type: x mandatory; /* Snap effect for horizontal scroll */
-    padding: 10px;
-    margin: 0 auto;
-    width: 95%;
-}
-
-.release-card {
-    min-width: 300px; /* Set a fixed width for horizontal scrolling */
-    height: 400px;
-    background-color: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    color: white;
+/* Page Wrapper */
+.page-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: center; /* Center card in view when scrolled */
+    min-height: 100vh; /* Full viewport height */
 }
 
-.release-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.main-content {
+    flex-grow: 1; /* Fills up remaining space */
 }
 
-.release-info {
-    padding: 10px;
-    text-align: left;
+main {
+    flex: 1; /* Pushes the footer to the bottom */
 }
 
-.release-info h3 {
-    font-size: 1em;
-    margin: 5px 0;
-}
-
-.release-info p {
-    font-size: 0.8em;
-}
-
-.release-info .artist {
-    color: #0f0;
-    font-weight: bold;
-}
-
-.release-icons {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
-    border-top: 1px solid #444;
-}
-
-.icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    color: #aaa;
-    cursor: pointer;
-}
-
-.icon:hover {
-    color: #0f0;
-}
-
-.divider {
-    width: 1px;
-    height: 15px;
-    background-color: #444;
-    margin: 0 8px;
-}
-
-.play-button {
-    background-color: #00ff91;
-    color: #252626;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    margin-left: auto;
-    font-size: 0.9em;
-}
-
-.play-button:hover {
-    background-color: #00cc7a;
-}
-
-
-@media (max-width: 768px) { /* Target mobile screens */
-    .releases-grid {
-        display: flex; /* Use flexbox for horizontal layout */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        scroll-snap-type: x mandatory; /* Enable snap scrolling */
-        gap: 15px; /* Keep the gap between cards */
-        padding: 20px 10px; /* Add padding for aesthetics */
-    }
-
-    .release-card {
-        flex: 0 0 90%; /* Each card takes up 90% of the container width */
-        margin-right: 10px; /* Margin to create a glimpse of the next card */
-        scroll-snap-align: start; /* Snap alignment */
-    }
-
-    .releases-grid::-webkit-scrollbar {
-        display: none; /* Hide scrollbar */
-    }
-}
-
-
-/* Audio Player */
-.audio-player {
-    display: flex;
-    align-items: center;
-    background-color: #2c6f3e;
-    border-radius: 8px;
-    padding: 10px;
-    color: white;
-    margin-top: 20px;
-}
-
-.audio-player.hidden {
-    display: none;
-}
-
-.player-cover {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-}
-
-.player-info {
-    margin-left: 15px;
-    flex: 1;
-}
-
-.player-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.progress-bar {
-    width: 100px;
-}
-
-.more-events-button {
-    width: 95%;
-    height: 100px;
-    margin: 30px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: transparent;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: color 0.3s;
-    text-decoration: none; /* For link styling */
-}
-
-/* Text and arrow styling */
-.more-events-button span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 1;
-}
-
-.more-events-button span::after {
-    content: '→'; /* Arrow */
-    font-size: 40px;
-}
-
-/* Yellow fill effect on hover */
-.more-events-button::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 223, 0, 0.8); /* Yellow overlay */
-    transition: top 0.4s ease;
-    z-index: 0;
-}
-
-/* Hover effect to animate fill from bottom up */
-.more-events-button:hover::before {
-    top: 0;
-}
-
-.more-events-button:hover {
-    color: #252626; /* Text color changes to match background */
-}
-.rave-message {
-    color: white; /* Set the text color */
-    font-size: 1.2em; /* Adjust the font size */
-    margin-top: 15px; /* Add some space above the text */
-    text-align: center; /* Center align the text */
-}
 
 /* Footer Section */
 .footer-section {
@@ -709,6 +252,7 @@ body {
     max-width: 100%;
     margin: 0 auto;
     padding: 1rem;
+    margin-top: 180px; /* Adjust this value to control how far down you want to push the footer */
 }
 
 .footer-content {
