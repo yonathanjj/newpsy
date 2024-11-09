@@ -165,10 +165,18 @@
             <label class="block text-md md:text-lg mb-2">Repeat password*</label>
             <input id="confirmPassword" type="password" placeholder="Repeat new password" required style="background-color: #1E1E1E; height: 60px;" class="w-full text-white p-4 mb-6 placeholder-gray-400">
 
-            <button type="submit" class="w-full h-12 text-white font-bold">
+            <button type="submit" class="signup-button w-full h-12 text-white font-bold">
                 Sign Up
             </button>
         </form>
+
+        <!-- Google Sign Up Section -->
+        <div class="text-center mt-4 mb-6">
+            <button class="google-signup-button flex items-center justify-center">
+                <img src="google.png" alt="Google logo" class="mr-2 w-6 h-6" />
+                Sign Up with Google
+            </button>
+        </div>
 
         <div id="login-prompt" class="text-left mt-4 text-gray-400 text-md md:text-lg">
             Already have an account?
@@ -177,31 +185,61 @@
     </div>
 </div>
 
+
 <style>
     /* Button base styles */
-button {
+.signup-button {
     border-radius: 20px;
-    background: linear-gradient(to right, #29F308, #188D05);
-    color: white;
+    background: transparent; /* Transparent background */
+    color: white; /* White text */
     font-weight: bold;
     width: 100%; /* Full width */
-    height: 48px; /* Adjusted height for better visual appeal */
-    border: none; /* Remove border */
+    height: 48px; /* Adjusted height */
+    border: 2px solid #4CAF50; /* Green border (edge stroke) */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+    transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease; /* Smooth transitions */
 }
 
 /* Hover effect */
-button:hover {
+.signup-button:hover {
     transform: scale(1.05); /* Scale up slightly on hover */
-    background: linear-gradient(to right, #1EDC00, #188D05); /* Darker gradient on hover */
+    background: linear-gradient(to right, #1EDC00, #188D05); /* Green gradient on hover */
+    border: 2px solid #1EDC00; /* Darker green border on hover */
 }
 
 /* Focus effect (optional) */
-button:focus {
+.signup-button:focus {
     outline: none; /* Remove the default outline */
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Add a subtle shadow */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Subtle shadow on focus */
 }
+
+    /* Google Sign Up Button Styles */
+    .google-signup-button {
+        width: 100%; /* Full width */
+        height: 48px; /* Adjusted height for better visual appeal */
+        background-color: black; /* Black background */
+        border: 2px solid #4CAF50; /* Green border */
+        color: white; /* White text */
+        font-weight: bold;
+        border-radius: 20px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+    }
+
+    /* Hover effect for the Google Sign Up Button */
+    .google-signup-button:hover {
+        transform: scale(1.05); /* Scale up slightly on hover */
+        background-color: #333333; /* Darker background on hover */
+    }
+
+    /* Focus effect for Google Button (optional) */
+    .google-signup-button:focus {
+        outline: none; /* Remove the default outline */
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Add a subtle shadow */
+    }
 
 </style>
 
