@@ -40,24 +40,6 @@
     <a href="login.html" class="block text-white font-bold hover:text-yellow-400">Login</a>
 </div>
 
-
-<script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden'); // Toggle visibility
-
-        // GSAP Animation
-        if (!mobileMenu.classList.contains('hidden')) {
-            gsap.fromTo(mobileMenu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5 });
-        } else {
-            gsap.to(mobileMenu, { opacity: 0, y: -20, duration: 0.5 });
-        }
-    });
-</script>
-
-
 <!-- Hidden Menu for Mobile -->
 <div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
     <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
