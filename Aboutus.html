@@ -18,8 +18,8 @@
         <a href="Aboutus.html" class="text-white font-bold hover:text-yellow-400">About Us</a>
     </div>
     <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
-        <a href="#" class="text-black font-bold hover:text-yellow-400">Store</a>
-        <a href="#" class="text-black font-bold hover:text-yellow-400">Login</a>
+        <a href="#" class="text-white font-bold hover:text-yellow-400">Store</a>
+        <a href="#" class="text-white font-bold hover:text-yellow-400">Login</a>
     </div>
     <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
         <div class="bg-white w-8 h-1 mb-1"></div>
@@ -36,24 +36,6 @@
     <a href="#" class="block text-black font-bold hover:text-yellow-400">Login</a>
 </div>
 
-
-<script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden'); // Toggle visibility
-
-        // GSAP Animation
-        if (!mobileMenu.classList.contains('hidden')) {
-            gsap.fromTo(mobileMenu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5 });
-        } else {
-            gsap.to(mobileMenu, { opacity: 0, y: -20, duration: 0.5 });
-        }
-    });
-</script>
-
-
 <!-- Hidden Menu for Mobile -->
 <div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
     <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
@@ -62,8 +44,7 @@
     <a href="#" class="block text-white font-bold hover:text-yellow-400">Login</a>
 </div>
 
-<!-- First Section -->
-<section class="section bg-white">
+<section class="section bg-dark">
     <h2 class="header-title">Welcome to Psyaddis</h2>
     <p class="content-section">
         We provide you with an unparalleled platform to explore and immerse yourself in the electrifying world of hard dance music. With a passion for this energetic genre, we have established ourselves as the go-to hub for hardstyle enthusiasts worldwide.
@@ -71,11 +52,12 @@
 </section>
 
 <!-- About Section -->
-<section class="section bg-white">
+<section class="section bg-dark">
     <p class="content-section">
         We provide you with an unparalleled platform to explore and immerse yourself in the electrifying world of hard dance music. With a passion for this energetic genre, we have established ourselves as the go-to hub for hardstyle enthusiasts worldwide.
     </p>
 </section>
+
 
 <!-- Second Section -->
 <section class="section team-section">
@@ -87,7 +69,7 @@
 </section>
 
 <!-- Third Section -->
-<section class="section bg-white">
+<section class="section bg-dark">
     <h2 class="text-3xl">Mission</h2>
     <p class="content-section">
         We provide you with an unparalleled platform to explore and immerse yourself in the electrifying world of hard dance music. With a passion for this energetic genre, we have established ourselves as the go-to hub for hardstyle enthusiasts worldwide.
@@ -110,7 +92,7 @@
 
         <!-- Logo and Contact Info -->
         <div class="footer-logo mb-4 md:mb-0">
-            <a href="index.html"><img src="logo.png" alt="Logo"></a>
+            <a href="index.html"><img src="psy.png" alt="Logo"></a>
         </div>
 
         <div class="footer-contact text-center md:text-left">
@@ -118,26 +100,26 @@
 
             <!-- Social Media Icons -->
             <div class="footer-social-icons flex justify-center md:justify-start space-x-4 mt-2">
-                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.instagram.com/psy_addis/?__pwa=1#"><img src="instagram-icon.png" alt="instagram"></a>
+                <a href="https://www.facebook.com/profile.php?id=100089936949638&ref=xav_ig_profile_web"><img src="facebook-icon.png" alt="facebook"></a>
+                <a href="https://www.youtube.com/@PsyAddis"><img src="youtube-icon.png" alt="youtube"></a>
             </div>
         </div>
 
         <!-- Footer Navigation Links -->
         <div class="footer-nav grid grid-cols-1 md:grid-cols-3 gap-2 text-left mt-6 md:mt-0">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Gallery</a>
+            <a href="index.html">Home</a>
+            <a href="Aboutus.html">About</a>
+            <a href="user.html">Services</a>
+            <a href="Gallery.html">Gallery</a>
             <a href="#">Blog</a>
-            <a href="#">Contact</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" class="footer-link" data-content="Privacy Policy">Privacy Policy</a>
+            <a href="#" class="footer-link" data-content="Terms of Service">Terms of Service</a>
+            <a href="#" class="footer-link" data-content="FAQ">FAQ</a>
         </div>
-    </div>
 
+    </div>
     <!-- Footer Legal Section -->
     <div class="footer-legal mt-8 py-4 text-center md:text-left text-gray-400">
         <span>&copy; 2024 Psyaddis. All rights reserved.</span>
@@ -149,6 +131,5 @@
         </div>
     </div>
 </footer>
-<script src="about.js"></script> <!-- Link to the JavaScript file -->
 </body>
 </html>
