@@ -702,9 +702,6 @@ body {
     text-align: center; /* Center align the text */
 }
 
-
-
-
 /* Footer Section */
 .footer-section {
     background-color: #252626;
@@ -715,7 +712,7 @@ body {
 }
 
 .footer-content {
-    max-width: 97%;
+    max-width: 97%;s
     margin: 0 auto;
 }
 
@@ -774,6 +771,7 @@ body {
 .footer-legal a:hover {
     color: #28a745;
 }
+
 
 /* Responsive styles */
 @media (min-width: 768px) {
