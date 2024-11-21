@@ -94,45 +94,47 @@ infoButton.addEventListener('click', () => {
         }
     });
 
-    // Audio player
-    const playButton = document.querySelector('.play-button');
-    const audioPlayer = document.getElementById('audio-player');
-    const audio = document.getElementById('audio');
-    const pauseButton = document.querySelector('.pause-button');
-    const progressBar = document.querySelector('.progress-bar');
-    const currentTime = document.querySelector('.current-time');
-    const totalTime = document.querySelector('.total-time');
+document.querySelectorAll(".release-card").forEach((card) => {
+    const playButton = card.querySelector(".play-button");
+    const audio = card.querySelector("audio");
+    const progressBar = card.querySelector(".progress-bar");
+    const volumeBar = card.querySelector(".volume-bar");
 
-    if (audio) {
-        audio.addEventListener('loadedmetadata', () => {
-            const minutes = Math.floor(audio.duration / 60);
-            const seconds = Math.floor(audio.duration % 60);
-            totalTime.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-        });
-
-        playButton?.addEventListener('click', () => {
-            audio.play().then(() => {
-                audioPlayer?.classList.remove('hidden');
-                gsap.fromTo(audioPlayer, { opacity: 0 }, { opacity: 1, duration: 1 });
-            }).catch(error => console.error("Error playing audio:", error));
-        });
-
-        audio.addEventListener('timeupdate', () => {
-            const minutes = Math.floor(audio.currentTime / 60);
-            const seconds = Math.floor(audio.currentTime % 60);
-            currentTime.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-            progressBar.value = (audio.currentTime / audio.duration) * 100;
-        });
-
-        pauseButton?.addEventListener('click', () => {
+    // Play/Pause functionality
+    playButton.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playButton.textContent = "Pause";
+        } else {
             audio.pause();
-            audioPlayer?.classList.add('hidden');
-        });
+            playButton.textContent = "Play";
+        }
+    });
 
-        progressBar?.addEventListener('input', () => {
-            audio.currentTime = (progressBar.value / 100) * audio.duration;
-        });
-    }
+    // Update progress bar as music plays
+    audio.addEventListener("timeupdate", () => {
+        // Update the progress bar value
+        progressBar.value = (audio.currentTime / audio.duration) * 100;
+
+        // Calculate the percentage of completion
+        const percentage = (audio.currentTime / audio.duration) * 100;
+
+        // Update the background gradient of the progress bar
+        progressBar.style.background = `linear-gradient(to right, #00ff91 ${percentage}%, #444 ${percentage}%)`;
+    });
+
+    // Seek music
+    progressBar.addEventListener("input", () => {
+        audio.currentTime = (progressBar.value / 100) * audio.duration;
+    });
+
+    // Adjust volume
+    volumeBar.addEventListener("input", () => {
+        audio.volume = volumeBar.value;
+    });
+});
+
+
 
     // Swipe for releases grid
     const releasesGrid = document.getElementById('releasesGrid');
