@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+
+  <!-- Alpine.js -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js" defer></script>
+
+  <!-- Tailwind CSS for Styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Custom styles for futuristic look */
+    body {
+        font-family: 'Arial', sans-serif;
+    }
+    .sidebar {
+        transition: width 0.3s ease;
+    }
+    .neon-text {
+        color: #00ff99;
+        text-shadow: 0 0 10px rgba(0, 255, 153, 0.7), 0 0 20px rgba(0, 255, 153, 0.7);
+    }
+    .neon-button {
+        background: linear-gradient(45deg, #00ff99, #00e6e6);
+        color: white;
+        box-shadow: 0 0 15px rgba(0, 255, 153, 0.7);
+        transition: transform 0.3s ease-in-out;
+    }
+    .neon-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(0, 255, 153, 0.9);
+    }
+    .sidebar-item:hover {
+        background-color: #222222;
+        box-shadow: 0 0 15px rgba(0, 255, 153, 0.7);
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+<!-- Sidebar -->
+<div x-data="{ open: true, mobileOpen: false }" class="flex h-screen">
+  <!-- Sidebar on Desktop -->
+  <div :class="open ? 'w-64' : 'w-20'" class="sidebar bg-gray-900 text-white p-5 transition-all hidden lg:block">
+    <button @click="open = !open" class="text-xl p-2 focus:outline-none hover:text-green-400">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6">
+        <path fill-rule="evenodd" d="M4 6h12a1 1 0 110 2H4a1 1 0 110-2zm0 4h12a1 1 0 110 2H4a1 1 0 110-2zm0 4h12a1 1 0 110 2H4a1 1 0 110-2z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+    <ul>
+      <li class="mt-6">
+        <a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Dashboard</a>
+      </li>
+      <li class="mt-4">
+        <a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Tickets</a>
+      </li>
+      <li class="mt-4">
+        <a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Users</a>
+      </li>
+      <li class="mt-4">
+        <a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Reports</a>
+      </li>
+      <li class="mt-4">
+        <a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Settings</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Sidebar on Mobile -->
+  <div x-show="mobileOpen" @click.away="mobileOpen = false" class="lg:hidden fixed inset-0 bg-gray-800 bg-opacity-50 z-50">
+    <div class="bg-gray-900 w-3/4 h-full p-5">
+      <button @click="mobileOpen = false" class="text-xl p-2 focus:outline-none hover:text-green-400">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6">
+          <path fill-rule="evenodd" d="M4 6h12a1 1 0 110 2H4a1 1 0 110-2zm0 4h12a1 1 0 110 2H4a1 1 0 110-2zm0 4h12a1 1 0 110 2H4a1 1 0 110-2z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+      <ul class="mt-6">
+        <li><a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Dashboard</a></li>
+        <li class="mt-4"><a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Tickets</a></li>
+        <li class="mt-4"><a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Users</a></li>
+        <li class="mt-4"><a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Reports</a></li>
+        <li class="mt-4"><a href="#" class="text-lg sidebar-item px-4 py-2 rounded-md">Settings</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 p-6">
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl font-semibold text-green-400 neon-text">Admin Dashboard</h1>
+      <button class="neon-button px-4 py-2 rounded-md">
+        Log Out
+      </button>
+    </div>
+
+    <!-- Mobile Hamburger Menu Toggle -->
+    <div class="lg:hidden mt-4">
+      <button @click="mobileOpen = !mobileOpen" class="neon-button px-4 py-2 rounded-md">
+        Open Menu
+      </button>
+    </div>
+
+    <!-- Placeholder for Content -->
+    <div x-data="{ openTicketPopup: false }">
+      <button @click="openTicketPopup = true" class="neon-button px-4 py-2 rounded-md mt-5">
+        Add New Ticket
+      </button>
+
+      <!-- Popup for Ticket Details -->
+      <div x-show="openTicketPopup" x-transition class="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-black p-8 rounded-lg w-1/3">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">Add Ticket</h3>
+          <label for="ticketName" class="block text-gray-300">Ticket Name</label>
+          <input id="ticketName" type="text" class="w-full p-2 border border-gray-300 rounded-md mt-2 mb-4 bg-gray-800 text-white" />
+
+          <label for="ticketPrice" class="block text-gray-300">Ticket Price</label>
+          <input id="ticketPrice" type="text" class="w-full p-2 border border-gray-300 rounded-md mt-2 mb-4 bg-gray-800 text-white" />
+
+          <div class="flex justify-end mt-4">
+            <button @click="openTicketPopup = false" class="bg-gray-500 text-white px-4 py-2 rounded-md mr-2">Close</button>
+            <button class="neon-button px-4 py-2 rounded-md">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
