@@ -7,6 +7,131 @@ document.addEventListener("DOMContentLoaded", function () {
         mobileMenu.classList.toggle("hidden");
     });
 
+
+// Get the elements
+const myTicketsCircle = document.getElementById('myTicketsCircle');
+const ticketPopup = document.getElementById('ticketPopup');
+const closeBtn = document.getElementById('closeBtn');
+const ticketList = document.getElementById('ticketList');
+
+// Toggle the popup when the "My Tickets" circle is clicked
+myTicketsCircle.addEventListener('click', function(event) {
+    event.stopPropagation();
+    // Toggle the 'show' class to either show or hide the popup
+    ticketPopup.classList.toggle('show');
+});
+
+// Close the popup when the close button is clicked
+closeBtn.addEventListener('click', function() {
+    ticketPopup.classList.remove('show'); // Hide the modal
+});
+
+// Close the popup if the user clicks outside of the modal
+window.addEventListener('click', function(event) {
+    if (event.target === ticketPopup) {
+        ticketPopup.classList.remove('show');
+    }
+});
+
+// Function to add tickets dynamically with "Used" and "Use" sections
+function addTicket(ticketId, imageSrc, title, date, details, price, numPeople) {
+    const ticketItem = document.createElement('li');
+    ticketItem.classList.add('ticket-item');
+
+    // Create ticket image element
+    const ticketImg = document.createElement('div');
+    ticketImg.classList.add('ticket-img');
+    const img = document.createElement('img');
+    img.src = imageSrc;
+    img.alt = title;
+    ticketImg.appendChild(img);
+
+    // Create ticket details
+    const ticketDetails = document.createElement('div');
+    ticketDetails.classList.add('ticket-details');
+    const ticketTitle = document.createElement('h3');
+    ticketTitle.textContent = title;
+    const ticketDate = document.createElement('p');
+    ticketDate.textContent = `Date: ${date}`;
+    const ticketDetailsText = document.createElement('p');
+    ticketDetailsText.textContent = details;
+
+    // Add Money Paid and Number of People
+    const ticketPaymentInfo = document.createElement('p');
+    ticketPaymentInfo.classList.add('ticket-payment-info');
+    ticketPaymentInfo.textContent = `Amount Paid: $${price} for ${numPeople} ${numPeople > 1 ? 'people' : 'person'}`;
+    ticketDetails.appendChild(ticketPaymentInfo);
+
+    // Create ticket status (Used and Use)
+    const ticketStatus = document.createElement('div');
+    ticketStatus.classList.add('ticket-status');
+
+    // Used label
+    const usedLabel = document.createElement('span');
+    usedLabel.classList.add('used-label');
+
+    // Use label
+    const useLabel = document.createElement('span');
+    useLabel.classList.add('use-label');
+    useLabel.textContent = 'Use';
+
+    // Fetch the ticket status from the backend (API)
+    fetch(`/ticket-status/${ticketId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.used) {
+                // If the ticket is used, show "Used" and hide "Use"
+                usedLabel.textContent = 'Used';
+                ticketStatus.appendChild(usedLabel);
+            } else {
+                // If the ticket is not used, show "Use" and hide "Used"
+                useLabel.onclick = function() {
+                    // Simulate the use button action, this could send a backend request to mark the ticket as used
+                    alert('You clicked Use!');
+                    // Optional: Send a request to mark the ticket as used
+                    fetch(`/update-ticket-status/${ticketId}`, {
+                        method: 'POST',
+                        body: JSON.stringify({ used: true }),
+                        headers: { 'Content-Type': 'application/json' }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Change the status to 'Used' after the action is successful
+                            usedLabel.textContent = 'Used';
+                            ticketStatus.appendChild(usedLabel);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error updating ticket status:', error);
+                    });
+                };
+                ticketStatus.appendChild(useLabel);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching ticket status:', error);
+        });
+
+    // Append details to ticket
+    ticketDetails.appendChild(ticketTitle);
+    ticketDetails.appendChild(ticketDate);
+    ticketDetails.appendChild(ticketDetailsText);
+
+    // Append ticket to list
+    ticketItem.appendChild(ticketImg);
+    ticketItem.appendChild(ticketDetails);
+    ticketItem.appendChild(ticketStatus);
+
+    ticketList.appendChild(ticketItem);
+}
+
+// Example: Dynamically add a ticket (replace with your actual ticket IDs, price, and people count)
+addTicket(1, 'ticket1.jpg', 'Concert: The Weeknd', '2024-12-15', 'Venue: Madison Square Garden', 120, 3);
+addTicket(2, 'ticket2.jpg', 'Festival: Coachella', '2025-04-10', 'Location: Indio, CA', 200, 5);
+addTicket(3, 'ticket3.jpg', 'Play: Hamilton', '2025-02-25', 'Venue: Broadway', 150, 2);
+
+
     // GSAP animations
     gsap.from(".main-content h1", {
         duration: 1.5,
@@ -282,3 +407,4 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
+
