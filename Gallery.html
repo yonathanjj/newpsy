@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Responsive Layout</title>
+  <title>Gallery - Memories</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="gallery.css">
   <script src="gallery.js"></script>
 </head>
-<body class="font-inknut-antiqua bg-gray-100">
-
-<!-- Navbar -->
+<body class="font-inknut-antiqua bg-black text-white">
+<!-- Navigation Bar -->
 <nav class="navbar fixed top-0 w-full h-20 flex items-center px-4 backdrop-blur-md backdrop-brightness-75">
   <a href="index.html"><img src="psy.png" class="logo"></a>
   <div class="nav-links flex-1 justify-center hidden md:flex space-x-6">
@@ -18,8 +17,8 @@
     <a href="Aboutus.html" class="text-white font-bold hover:text-yellow-400">About Us</a>
   </div>
   <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
-    <a href="#" class="text-black font-bold hover:text-yellow-400">Store</a>
-    <a href="#" class="text-black font-bold hover:text-yellow-400">Login</a>
+    <a href="#" class="text-white font-bold hover:text-yellow-400">Store</a>
+    <a href="#" class="text-white font-bold hover:text-yellow-400">Login</a>
   </div>
   <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
     <div class="bg-white w-8 h-1 mb-1"></div>
@@ -28,112 +27,27 @@
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
-  <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
-  <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
-  <a href="#" class="block text-black font-bold hover:text-yellow-400">Store</a>
-  <a href="#" class="block text-black font-bold hover:text-yellow-400">Login</a>
-</div>
-
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-
-  hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden'); // Toggle visibility
-
-      // GSAP Animation
-      if (!mobileMenu.classList.contains('hidden')) {
-          gsap.fromTo(mobileMenu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5 });
-      } else {
-          gsap.to(mobileMenu, { opacity: 0, y: -20, duration: 0.5 });
-      }
-  });
-</script>
-
-
-<!-- Hidden Menu for Mobile -->
-<div class="mobile-menu hidden md:hidden absolute top-20 left-0 w-full bg-gray-800 p-4 z-20">
-  <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
-  <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
-  <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
-  <a href="#" class="block text-white font-bold hover:text-yellow-400">Login</a>
-</div>
-
-<main class="container mx-auto my-12">
-  <h1 class="text-center text-5xl font-bold text-gray-800 mb-8">Gallery</h1>
-  <div id="masonry-gallery" class="gallery-grid px-4">
-    <!-- Gallery cards -->
-    <div class="gallery-card tall">
-      <img src="event1.jpg" alt="Gallery Image 1" class="gallery-image object-cover w-full h-full">
+<main class="gallery-container pt-24 px-4">
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-[95%] mx-auto">
+    <!-- Add images here -->
+    <div class="gallery-item relative group">
+      <img src="event4.jpg" alt="Gallery Image 1" class="gallery-image">
+      <div class="overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
     </div>
-    <div class="gallery-card wide">
-      <img src="event2.jpg" alt="Gallery Image 2" class="gallery-image object-cover w-full h-full">
+    <div class="gallery-item relative group">
+      <img src="gal4.png" alt="Gallery Image 2" class="gallery-image">
+      <div class="overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
     </div>
-
-    <div class="gallery-card tall">
-      <img src="event1.jpg" alt="Gallery Image 1" class="gallery-image object-cover w-full h-full">
+    <div class="gallery-item relative group">
+      <img src="image3.jpg" alt="Gallery Image 3" class="gallery-image">
+      <div class="overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300"></div>
     </div>
-    <div class="gallery-card wide">
-      <img src="event2.jpg" alt="Gallery Image 2" class="gallery-image object-cover w-full h-full">
-    </div>
-    <!-- Add more gallery items -->
-  </div>
-
-
-
-
-  <!-- Footer Section -->
-  <footer class="footer-section py-8">
-    <div class="footer-content flex flex-col md:flex-row justify-between items-start px-4 md:px-0">
-
-      <!-- Logo and Contact Info -->
-      <div class="footer-logo mb-4 md:mb-0">
-        <a href="index.html"><img src="logo.png" alt="Logo"></a>
-      </div>
-
-      <div class="footer-contact text-center md:text-left">
-        <span>Contact us at: support@psy.com</span>
-
-        <!-- Social Media Icons -->
-        <div class="footer-social-icons flex justify-center md:justify-start space-x-4 mt-2">
-          <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-          <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-          <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-        </div>
-      </div>
-
-      <!-- Footer Navigation Links -->
-      <div class="footer-nav grid grid-cols-1 md:grid-cols-3 gap-2 text-left mt-6 md:mt-0">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Gallery</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">FAQ</a>
-      </div>
-    </div>
-
-    <!-- Footer Legal Section -->
-    <div class="footer-legal mt-8 py-4 text-center md:text-left text-gray-400">
-      <span>&copy; 2024 Psyaddis. All rights reserved.</span>
-      <div class="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookies</a>
-        <a href="#">Disclaimer</a>
-      </div>
-    </div>
-  </footer>
+    <!-- More images... -->
+  </section>
 </main>
 
 
 
-
+<script src="gallery.js"></script>
 </body>
 </html>
